@@ -14,7 +14,7 @@ import java.util.List;
  * This class implements all the functions for the different inputs.
  * @author javaito
  */
-class TtyListener implements Runnable {
+public class TtyListener implements Runnable {
 
     private static final String GET_TTY_CONFIG = "-g";
     private static final String CHARACTER_BUFFERED_COMMAND = "-icanon min 1";

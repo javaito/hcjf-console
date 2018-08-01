@@ -7,6 +7,7 @@ import org.hcjf.io.net.messages.Message;
 import org.hcjf.io.net.messages.MessageBuffer;
 import org.hcjf.io.net.messages.MessagesNode;
 import org.hcjf.io.net.messages.ResponseMessage;
+import org.hcjf.utils.Cryptography;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,13 +17,13 @@ import java.util.UUID;
  * This class implements a clients using the message protocol to connect the console with som server.
  * @author javaito
  */
-class ConsoleClient extends MessagesNode<ConsoleSession> {
+public class ConsoleClient extends MessagesNode<ConsoleSession> {
 
     private final ConsoleSession consoleSession;
     private final Map<UUID, ResponseMessage> responseMessageMap;
 
-    public ConsoleClient(String host, Integer port) {
-        super(host, port);
+    public ConsoleClient(String host, Integer port, Cryptography cryptography) {
+        super(host, port, cryptography);
         consoleSession = new ConsoleSession(UUID.randomUUID(), this);
         responseMessageMap = new HashMap<>();
     }
